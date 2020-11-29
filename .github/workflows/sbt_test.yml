@@ -2,9 +2,9 @@ name: sbt test
 
 on:
   push:
-    branches: [ issue1 ]
+    branches: [ Issue1 ]
   pull_request:
-    branches: [ issue1 ]
+    branches: [ master ]
 
 jobs:
   build:
