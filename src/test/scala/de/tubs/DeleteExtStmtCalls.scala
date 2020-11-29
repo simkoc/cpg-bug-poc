@@ -14,7 +14,7 @@ class DeleteExtStmtCalls(methods: Seq[nodes.Method],
     cpg: Cpg,
     keyPools = Some(keyPool.split(methods.length))) {
 
-  private val emptyOpcodeNames = List("EXT_NOP", "EXT_STMT")
+  private val emptyOpcodeNames = List("EXT_STMT")
 
   override def partIterator: scala.Iterator[nodes.Method] = methods.iterator
 
