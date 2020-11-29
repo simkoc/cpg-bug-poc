@@ -5,14 +5,16 @@ import io.shiftleft.codepropertygraph.generated.{EdgeTypes, nodes}
 import io.shiftleft.passes.{DiffGraph, IntervalKeyPool, ParallelCpgPass}
 import io.shiftleft.semanticcpg.language._
 
-class TriggerBugPass(something : List[Int], cpg : Cpg, keyPool : IntervalKeyPool)
-  extends ParallelCpgPass[Int](cpg, keyPools = Some(keyPool.split(something.size))) {
+class TriggerBugPass(something: List[Int], cpg: Cpg, keyPool: IntervalKeyPool)
+    extends ParallelCpgPass[Int](
+      cpg,
+      keyPools = Some(keyPool.split(something.size))) {
 
   override def partIterator: Iterator[Int] = something.iterator
 
   override def runOnPart(part: Int): Iterator[DiffGraph] = {
-    implicit val diffGraph : DiffGraph.Builder = DiffGraph.newBuilder
-    if(part == 0) {
+    implicit val diffGraph: DiffGraph.Builder = DiffGraph.newBuilder
+    if (part == 0) {
       // find the DO_FCALL call
       val doFcall = cpg.call.codeExact("DO_FCALL").head
       // adding new AST node to represent the called method name
