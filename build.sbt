@@ -5,7 +5,7 @@ version := "1.0-SNAPSHOT"
 licenses += "APACHE-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0")
 enablePlugins(GitVersioning)
 
-val cpgVersion = "1.2.26"
+val cpgVersion = "1.2.28"
 
 lazy val dependencies =
   new {
