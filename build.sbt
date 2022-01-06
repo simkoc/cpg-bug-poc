@@ -1,11 +1,11 @@
 name := "cpg bug poc"
-scalaVersion in ThisBuild := "2.13.3"
+ThisBuild / scalaVersion := "2.13.3"
 organization := "de.tubs"
 version := "1.0-SNAPSHOT"
 licenses += "APACHE-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0")
 enablePlugins(GitVersioning)
 
-val cpgVersion = "1.2.28"
+val cpgVersion = "1.3.483"
 
 lazy val dependencies =
   new {
@@ -14,13 +14,10 @@ lazy val dependencies =
     val codepropertygraph       = "io.shiftleft"           %% "codepropertygraph"          % cpgVersion
     val codepropertygraphProtos = "io.shiftleft"           %% "codepropertygraph-protos"   % cpgVersion
     val semanticcpg             = "io.shiftleft"           %% "semanticcpg"                % cpgVersion
-
-    val logbackClassic          = "ch.qos.logback"         %  "logback-classic"            % "1.2.3"
+    val slf4jnop                = "org.slf4j"              % "slf4j-nop"                   % "1.7.32"
     val betterFiles             = "com.github.pathikrit"   %% "better-files"               % "3.8.0"
     val scalaParallelCollection = "org.scala-lang.modules" %% "scala-parallel-collections" % "0.2.0"
     val scalatest               = "org.scalatest"          %% "scalatest"                  % "3.1.0" % Test
-    val fastparse               = "com.lihaoyi"            %% "fastparse"                  % "2.2.2"
-    val scalaParserCombinators  = "org.scala-lang.modules" %% "scala-parser-combinators"   % "1.1.2"
     val commonsio               = "commons-io"              % "commons-io"                  % "2.8.0"
   }
 
@@ -30,11 +27,11 @@ libraryDependencies ++= Seq(
   dependencies.codepropertygraph,
   dependencies.codepropertygraphProtos,
   dependencies.semanticcpg,
-  dependencies.logbackClassic,
   dependencies.betterFiles,
   dependencies.scalaParallelCollection,
   dependencies.scalatest,
-  dependencies.commonsio
+  dependencies.commonsio,
+  dependencies.slf4jnop
 )
 
 

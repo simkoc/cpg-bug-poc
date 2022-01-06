@@ -7,7 +7,7 @@ object CpgTestFixture {
 
   def createCpg(): Cpg = {
     val cpg: Cpg = Cpg.emptyCpg
-    PhpToCpg.createCpg(cpg)
+    MakeCpg.createCpg(cpg)
   }
 
 }
